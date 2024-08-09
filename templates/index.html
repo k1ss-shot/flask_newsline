@@ -1,0 +1,28 @@
+<html lang="ru"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Новости</h1>
+    </header>
+    <main>
+        {% for item in data.result %}
+            <div class="article">
+                <h2>{{ item.title_name }}</h2>
+                <img src="{{ url_for('static', filename=item.photo_name) }}">
+                <p>{{ item.description_name }}</p>
+                <p><small>{{ item.publish_time_datetime }}</small></p>
+                <a href="" class="button-read">Читать</a>
+            </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <p>© 2024 Новости</p>
+    </footer>
+
+</body></html>
