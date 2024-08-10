@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости</title>
-    {% block style %}
+    <title>{{ data.result[0].title_name }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    {% endblock %}
 </head>
 <body>
     <header>
-        <h1>Новости</h1>
+        <h1>{{ data.result[0].title_name  }}</h1>
     </header>
     <main>
-        {% for image in images %}
-            <article>
-                <h2>{{ image.id }}</h2>
-                <img src="{{ image.photo }}">
-                <p>{{ item.description_name }}</p>
-            </article>
-        {% endfor %}
+        <div class="article-detail">
+            <img src="{{ url_for('static', filename=data.result[0].photo_name) }}">
+            <h2>{{ data.result[0].title_name }}</h2>
+            <p>{{ data.result[0].text  }}</p>
+            <p><small>{{ data.result[0].publish_time }}</small></p>
+        </div>
+        <div class="article-detail comments">
+            <h3>Комментарии</h3>
+            <p>{{ data.result[0].comment }}</p>
+        </div>
+        <a href="{{ url_for('web.index') }}" class="button-read">Назад</a>
     </main>
     <footer>
-        <p>&copy; 2024 Новости</p>
+        <p>© 2024 Новости</p>
     </footer>
 </body>
 </html>

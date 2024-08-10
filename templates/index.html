@@ -17,7 +17,7 @@
                 <img src="{{ url_for('static', filename=item.photo_name) }}">
                 <p>{{ item.description_name }}</p>
                 <p><small>{{ item.publish_time_datetime }}</small></p>
-                <a href="" class="button-read">Читать</a>
+                <a href="{{ url_for('web.post_detail', post_id=item.post_id) }}" class="button-read">Читать</a>
             </div>
         {% endfor %}
     </main>

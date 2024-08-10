@@ -50,3 +50,4 @@ class Article(Base):
     photo_id = Column(Integer, ForeignKey('t_photo.id'))
     publish_time_id = Column(Integer, ForeignKey('t_publish_time.id'))
     description_id = Column(Integer, ForeignKey('t_description.id'))
+    post_id = Column(Integer, ForeignKey('t_post.id'))
